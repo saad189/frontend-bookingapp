@@ -1,0 +1,13 @@
+<div class="lab-items-container">
+  <div *ngFor="let lab of labs">
+    <div (click)="showLab(lab.labId)" class="m-4">
+      <div class="lab-item">
+        <img appImagefilter [src]="lab.imageUrl" alt="{{ lab.name }}" />
+
+        <div class="text-block stroke-text">
+          {{ lab.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

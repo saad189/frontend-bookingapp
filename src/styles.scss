@@ -1,0 +1,249 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use "@angular/material" as mat;
+
+@import "bootstrap/scss/bootstrap.scss";
+@import "~@angular/material/theming";
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+@include mat.core();
+
+$original-primary: mat-palette($mat-green, 300);
+$original-accent: mat-palette($mat-indigo, 500);
+$original-warn: mat-palette($mat-red, 500);
+
+$protanopia-primary: mat-palette($mat-lime, 500);
+$protanopia-accent: mat-palette($mat-deep-purple, 400);
+$protanopia-warn: mat-palette($mat-lime, 900);
+
+$deuteranopia-primary: mat-palette($mat-orange, 200);
+$deuteranopia-accent: mat-palette($mat-deep-purple, 400);
+$deuteranopia-warn: mat-palette($mat-lime, 800);
+
+$tritanopia-primary: mat-palette($mat-teal, 50);
+$tritanopia-accent: mat-palette($mat-teal, 700);
+$tritanopia-warn: mat-palette($mat-red, 500);
+
+$achromatopsia-primary: mat-palette($mat-brown, 50);
+$achromatopsia-accent: mat-palette($mat-gray, 600);
+$achromatopsia-warn: mat-palette($mat-gray, 700);
+
+$original-theme: mat-light-theme(
+  $original-primary,
+  $original-accent,
+  $original-warn
+);
+
+$protanopia-theme: mat-light-theme(
+  $protanopia-primary,
+  $protanopia-accent,
+  $protanopia-warn
+);
+
+$deuteranopia-theme: mat-light-theme(
+  $deuteranopia-primary,
+  $deuteranopia-accent,
+  $deuteranopia-warn
+);
+
+$tritanopia-theme: mat-light-theme(
+  $tritanopia-primary,
+  $tritanopia-accent,
+  $tritanopia-warn
+);
+
+$achromatopsia-theme: mat-light-theme(
+  $achromatopsia-primary,
+  $achromatopsia-accent,
+  $achromatopsia-warn
+);
+
+.original {
+  @include angular-material-theme($original-theme);
+
+  --button-color: #81c784;
+  --dial-active-color: #fff;
+  --dial-inactive-color: rgba(255, 255, 255, 0.5);
+  --dial-background-color: #81c784;
+  --dial-editable-active-color: #81c784;
+  --dial-editable-background-color: #fff;
+  --clock-face-time-active-color: #fff;
+  --clock-face-time-inactive-color: #6c6c6c;
+  --clock-face-inner-time-inactive-color: #929292;
+  --clock-face-time-disabled-color: #c5c5c5;
+  --clock-face-background-color: #f0f0f0;
+  --clock-hand-color: #81c784;
+}
+
+.protanopia {
+  @include angular-material-theme($protanopia-theme);
+
+  --button-color: #cddc39;
+  --dial-active-color: #fff;
+  --dial-inactive-color: rgba(255, 255, 255, 0.5);
+  --dial-background-color: #cddc39;
+  --dial-editable-active-color: #cddc39;
+  --dial-editable-background-color: #fff;
+  --clock-face-time-active-color: #fff;
+  --clock-face-time-inactive-color: #6c6c6c;
+  --clock-face-inner-time-inactive-color: #929292;
+  --clock-face-time-disabled-color: #c5c5c5;
+  --clock-face-background-color: #f0f0f0;
+  --clock-hand-color: #cddc39;
+}
+
+.deuteranopia {
+  @include angular-material-theme($deuteranopia-theme);
+
+  --button-color: #ffcc80;
+  --dial-active-color: #fff;
+  --dial-inactive-color: rgba(255, 255, 255, 0.5);
+  --dial-background-color: #ffcc80;
+  --dial-editable-active-color: #ffcc80;
+  --dial-editable-background-color: #fff;
+  --clock-face-time-active-color: #fff;
+  --clock-face-time-inactive-color: #6c6c6c;
+  --clock-face-inner-time-inactive-color: #929292;
+  --clock-face-time-disabled-color: #c5c5c5;
+  --clock-face-background-color: #f0f0f0;
+  --clock-hand-color: #ffcc80;
+}
+
+.tritanopia {
+  @include angular-material-theme($tritanopia-theme);
+
+  --button-color: #5f9c99;
+  --dial-active-color: #fff;
+  --dial-inactive-color: rgba(255, 255, 255, 0.5);
+  --dial-background-color: #5f9c99;
+  --dial-editable-active-color: #5f9c99;
+  --dial-editable-background-color: #fff;
+  --clock-face-time-active-color: #fff;
+  --clock-face-time-inactive-color: #6c6c6c;
+  --clock-face-inner-time-inactive-color: #929292;
+  --clock-face-time-disabled-color: #c5c5c5;
+  --clock-face-background-color: #f0f0f0;
+  --clock-hand-color: #5f9c99;
+}
+
+.achromatopsia {
+  @include angular-material-theme($achromatopsia-theme);
+
+  --button-color: gray;
+  --dial-active-color: #fff;
+  --dial-inactive-color: rgba(255, 255, 255, 0.5);
+  --dial-background-color: gray;
+  --dial-editable-active-color: gray;
+  --dial-editable-background-color: #fff;
+  --clock-face-time-active-color: #fff;
+  --clock-face-time-inactive-color: #6c6c6c;
+  --clock-face-inner-time-inactive-color: #929292;
+  --clock-face-time-disabled-color: #c5c5c5;
+  --clock-face-background-color: #f0f0f0;
+  --clock-hand-color: gray;
+}
+
+// Notification Classes
+
+.original-n {
+  background-color: red !important;
+}
+
+.protanopia-n {
+  background-color: rgb(43, 43, 0) !important;
+}
+
+.deuteranopia-n {
+  background-color: rgb(84, 84, 0) !important;
+}
+
+.tritanopia-n {
+  background-color: rgb(255, 0, 0) !important;
+}
+
+.achromatopsia-n {
+  background-color: rgb(54, 54, 54) !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Montserrat !important;
+  letter-spacing: 1px !important;
+}
+
+.container-fluid {
+  height: 100%;
+  max-width: fit-content;
+  padding-top: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem !important;
+}
+
+.mr-2 {
+  margin-right: 0.5rem !important;
+}
+
+.mr-3 {
+  margin-right: 1.5rem !important;
+}
+
+.ml-2 {
+  margin-left: 0.5rem !important;
+}
+
+.pl-2 {
+  padding-left: 0.5rem !important;
+}
+.ml-3 {
+  margin-left: 1.5rem !important;
+}
+
+.display-1 {
+  text-align: center;
+}
+
+.no-gutters {
+  [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+.mr-auto {
+  margin-right: auto !important;
+}
+
+.float-right {
+  float: right;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.mat-dialog-container {
+  padding: 0px !important;
+}
+
+.display-7 {
+  font-size: x-large;
+  line-height: 2rem;
+}
+
+.custom-container .mat-dialog-container {
+  border-radius: 2rem !important;
+}
+
+.float-right {
+  float: right;
+}

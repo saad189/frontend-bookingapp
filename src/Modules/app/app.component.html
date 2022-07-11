@@ -1,0 +1,149 @@
+<div [class]="colorMode">
+  <mat-sidenav-container [hasBackdrop]="" class="sidenav-container">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === true"
+    >
+      <mat-nav-list>
+        <a
+          [attr.aria-label]="'Link for: Main Page'"
+          mat-list-item
+          routerLink="/"
+          class="custom-logo"
+        >
+          <img class="p-4" src="assets/images/curtin-logo.jpg" alt="logo" />
+        </a>
+        <a
+          [attr.aria-label]="
+            'Link for:' + moduleNames[modulesAddress.DASHBOARD]
+          "
+          mat-list-item
+          routerLink="/{{ modulesAddress.DASHBOARD }}"
+        >
+          {{ moduleNames[modulesAddress.DASHBOARD] }}
+        </a>
+        <a
+          [attr.aria-label]="
+            'Link for:' + moduleNames[modulesAddress.INSTRUCTOR_PANEL]
+          "
+          mat-list-item
+          routerLink="/{{ modulesAddress.INSTRUCTOR_PANEL }}"
+        >
+          {{ moduleNames[modulesAddress.INSTRUCTOR_PANEL] }}
+        </a>
+        <a
+          [attr.aria-label]="'Link for:' + moduleNames[modulesAddress.SETTINGS]"
+          mat-list-item
+          routerLink="/{{ modulesAddress.SETTINGS }}"
+        >
+          {{ moduleNames[modulesAddress.SETTINGS] }}
+        </a>
+        <a
+          [attr.aria-label]="'Link for:' + moduleNames[modulesAddress.ABOUT_US]"
+          mat-list-item
+          routerLink="/{{ modulesAddress.ABOUT_US }}"
+        >
+          {{ moduleNames[modulesAddress.ABOUT_US] }}
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Start of Content -->
+    <mat-sidenav-content
+      [style.zoom]="zoomValue"
+      [@openClose]="isOpen ? true : false"
+      class="open-close-container"
+      [style.overflow]="(isHandset$ | async) === true ? 'auto' : 'hidden'"
+    >
+      <mat-toolbar
+        color="primary"
+        class="no_scroll mat-custom-row"
+        *ngIf="(isHandset$ | async) === false && !isMainRoute"
+      >
+        <a
+          [attr.aria-label]="'Link for: HOME'"
+          class="menu-class pl-0"
+          routerLink="/"
+        >
+          <mat-icon>menu</mat-icon>
+        </a>
+
+        <div class="links-container">
+          <a
+            [attr.aria-label]="
+              'Link for:' + moduleNames[modulesAddress.DASHBOARD]
+            "
+            mat-list-item
+            routerLinkActive="focused"
+            routerLink="/{{ modulesAddress.DASHBOARD }}"
+          >
+            {{ moduleNames[modulesAddress.DASHBOARD] }}
+          </a>
+          <a
+            [attr.aria-label]="
+              'Link for:' + moduleNames[modulesAddress.INSTRUCTOR_PANEL]
+            "
+            mat-list-item
+            routerLinkActive="focused"
+            routerLink="/{{ modulesAddress.INSTRUCTOR_PANEL }}"
+          >
+            {{ moduleNames[modulesAddress.INSTRUCTOR_PANEL] }}
+          </a>
+          <a
+            [attr.aria-label]="
+              'Link for:' + moduleNames[modulesAddress.SETTINGS]
+            "
+            class="settings"
+            mat-list-item
+            routerLinkActive="focused"
+            routerLink="/{{ modulesAddress.SETTINGS }}"
+          >
+            {{ moduleNames[modulesAddress.SETTINGS] }}
+          </a>
+          <a
+            [attr.aria-label]="
+              'Link for:' + moduleNames[modulesAddress.ABOUT_US]
+            "
+            mat-list-item
+            routerLinkActive="focused"
+            routerLink="/{{ modulesAddress.ABOUT_US }}"
+          >
+            {{ moduleNames[modulesAddress.ABOUT_US] }}
+          </a>
+        </div>
+      </mat-toolbar>
+
+      <mat-toolbar *ngIf="(isHandset$ | async) === true">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </mat-toolbar>
+      <app-loader></app-loader>
+
+      <simple-notifications></simple-notifications>
+
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <div class="zoom-bar-container mat-elevation-z8" *ngIf="zoomEnabled">
+    <mat-slider
+      min="1"
+      max="1.5"
+      value="1"
+      step="0.01"
+      [(ngModel)]="zoomValue"
+      class="mt-1"
+      color="primary"
+    ></mat-slider>
+  </div>
+</div>

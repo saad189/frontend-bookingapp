@@ -1,0 +1,36 @@
+.lab-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lab-item {
+  position: relative;
+  cursor: pointer;
+  border-radius: 2rem;
+  overflow: hidden;
+  width: 17rem;
+  height: 16rem;
+  img {
+    width: 100%;
+  }
+}
+
+.text-block {
+  position: absolute;
+  width: 14rem;
+  transform: translate(-50%, -50%);
+  top: 80%;
+  left: 50%;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 2rem;
+}
+
+.stroke-text {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}

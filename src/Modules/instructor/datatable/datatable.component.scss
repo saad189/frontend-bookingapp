@@ -1,0 +1,74 @@
+table {
+  width: max(75vw, 70rem);
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 2rem;
+}
+
+table tr:last-child td /*To remove the last border*/ {
+  border-bottom: 0 solid;
+}
+
+th.mat-header-cell {
+  text-align: center;
+  font-size: x-large;
+}
+
+.mat-table {
+  background-color: transparent !important;
+}
+
+tr:hover {
+  background: whitesmoke;
+}
+
+tr:active {
+  background: #efefef;
+}
+
+::ng-deep tr {
+  margin-bottom: 1rem;
+}
+
+.mat-row:nth-child(even) {
+  box-shadow: 0px 5px 6px -3px rgb(0 0 0 / 20%),
+    0px 9px 12px 1px rgb(0 0 0 / 14%), 0px 3px 16px 2px rgb(0 0 0 / 12%);
+}
+
+.mat-row:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+tr.mat-header-row {
+  height: 5rem !important;
+}
+
+td.mat-cell {
+  font-size: large;
+}
+
+tr.mat-row,
+tr.mat-footer-row {
+  height: 4rem !important;
+}
+
+.text-trunc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+.mat-form-field {
+  max-width: 35vw;
+}
+
+.display-flex {
+  display: flex;
+}
+
+button {
+  margin-right: 0.5rem;
+}

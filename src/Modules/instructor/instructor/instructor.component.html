@@ -1,0 +1,10 @@
+<div class="container-fluid min-vh-100">
+  <app-title-word content="Instructor Mode"></app-title-word>
+
+  <div>
+    <app-datatable
+      [bookingInformation]="bookingInformation"
+      (refreshBookings)="getBookings()"
+    ></app-datatable>
+  </div>
+</div>

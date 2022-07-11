@@ -1,0 +1,42 @@
+<div class="container-fluid {{ colorMode }}">
+  <div class="row">
+    <div class="col content-container">
+      <span class="display-2 pb-3">Details</span>
+
+      <div class="pb-3 display-7">{{ lab.details }}</div>
+
+      <div class="grid-container">
+        <ng-container *ngFor="let feature of labFeatures">
+          <div class="grid-item">
+            <img [src]="feature.url" [alt]="feature.name" />
+          </div>
+          <div class="grid-item">
+            <span>{{ feature.count }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <button
+        class="pb-3"
+        name="View Calender Button"
+        [attr.aria-label]="'View Calender Button'"
+        mat-raised-button
+        color="accent"
+        (click)="closeDialog(true)"
+      >
+        View Calender
+      </button>
+    </div>
+
+    <div class="col">
+      <img
+        mat-card-xl-image
+        [src]="lab.imageUrl"
+        appImagefilter
+        [alt]="lab.name + 'Image'"
+      />
+
+      <span class="display-1">{{ lab.name }}</span>
+    </div>
+  </div>
+</div>

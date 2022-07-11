@@ -1,0 +1,50 @@
+<div
+  class="container-fit"
+  appBackgroundColor
+  [currentColor]="backgroundColor"
+  style="color: white"
+>
+  <div class="image-container"><img [src]="imageUrl" [alt]="imageAlt" /></div>
+
+  <div class="display-4 pb-3">Confirmation</div>
+
+  <div mat-dialog-content>
+    <ng-container *ngIf="action === bookingActions.createAction && event">
+      <div class="display-4 pb-3">{{ labName }}</div>
+      <div class="display-7">
+        Time: {{ event.start | date: "HH00" }} - {{ event.end | date: "HH00" }}
+      </div>
+
+      <div class="display-7 pb-3 w-100">
+        Date: {{ event.start | date: "dd MMM (EEEE)" }}
+      </div>
+
+      <div class="display-7">UserId: {{ event.uid }}</div>
+      <div class="display-7 w-100">Email: {{ event.email }}</div>
+    </ng-container>
+
+    <ng-container *ngIf="action === bookingActions.editAction">
+      <div class="display-7">
+        The Booking Appointment has been Successfully Updated
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="action === bookingActions.deleteAction">
+      <div class="display-7">
+        The Booking Appointment has been Successfully Deleted
+      </div>
+    </ng-container>
+  </div>
+
+  <mat-dialog-actions align="center">
+    <button
+      mat-raised-button
+      mat-dialog-close
+      (click)="closeDialog()"
+      name="Acknowledge Button"
+      [attr.aria-label]="'Acknowledge Button'"
+    >
+      Okay
+    </button>
+  </mat-dialog-actions>
+</div>

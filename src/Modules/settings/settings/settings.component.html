@@ -1,0 +1,63 @@
+<div class="settings-container container-fluid min-vh-100 min-vw-100">
+  <app-title-word [content]="'Accesibility'" class="pb-3"></app-title-word>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <app-title-word
+        [content]="'Color Correction'"
+        [size]="3"
+      ></app-title-word>
+
+      <mat-radio-group name="colorOptions">
+        <div class="options-list-container" *ngFor="let option of colorModes">
+          <ng-container
+            *ngTemplateOutlet="optionTemplate; context: { data: option }"
+          ></ng-container>
+        </div>
+      </mat-radio-group>
+    </div>
+
+    <div class="col-lg-6">
+      <app-title-word
+        [content]="'Accesibility Options'"
+        [size]="3"
+      ></app-title-word>
+
+      <div class="options-list-container" *ngFor="let option of accessOptions">
+        <ng-container
+          *ngTemplateOutlet="accessibilityTemplate; context: { data: option }"
+        ></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template let-data="data" #optionTemplate>
+  <div class="option-container">
+    <mat-radio-button
+      class="example-radio-button largeRadio"
+      (change)="onColorChange($event.value)"
+      [value]="data.title"
+      [checked]="data.title == selectedColorMode"
+    >
+      <div class="text">
+        <span>{{ data.title | uppercase }}</span>
+        <span class="description">{{ data.description | titlecase }}</span>
+      </div>
+    </mat-radio-button>
+  </div>
+</ng-template>
+
+<ng-template let-data="data" #accessibilityTemplate>
+  <div class="option-container">
+    <mat-checkbox
+      (change)="onOptionSelect($event.checked, data.title)"
+      [checked]="data.checked"
+    >
+      <div class="text">
+        <span>{{ data.title | uppercase }}</span>
+        <span class="description">{{ data.description | titlecase }}</span>
+      </div>
+    </mat-checkbox>
+  </div>
+</ng-template>

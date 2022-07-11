@@ -1,0 +1,13 @@
+<div
+  *ngIf="isLoading | async"
+  class="overlay"
+  appBackgroundColor
+  currentColor="rgb(74, 74, 74)"
+>
+  <mat-progress-spinner
+    class="spinner"
+    mode="indeterminate"
+    [attr.aria-label]="'Loading'"
+  >
+  </mat-progress-spinner>
+</div>

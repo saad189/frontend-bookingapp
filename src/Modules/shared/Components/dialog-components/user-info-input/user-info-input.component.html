@@ -1,0 +1,83 @@
+<div
+  class="container-fit"
+  appBackgroundColor
+  [currentColor]="backgroundColor"
+  style="color: white"
+>
+  <div class="image-container"><img [src]="imageUrl" [alt]="imageAlt" /></div>
+
+  <div class="display-7 p-3">Step 2</div>
+  <div class="display-4 pb-3">{{ action | titlecase }} Booking</div>
+
+  <div mat-dialog-content>
+    <form [formGroup]="userForm" (ngSubmit)="closeDialog(true)">
+      <div class="booking-time-container">
+        <div class="input-item" *ngIf="action === bookingActions.createAction">
+          <img [src]="titleUrl" alt="title" />
+
+          <ng-container>
+            <mat-form-field color="accent" appearance="fill">
+              <mat-label>Enter Booking Title</mat-label>
+              <input
+                matInput
+                placeholder="Enter Title"
+                formControlName="bookingTitle"
+              />
+            </mat-form-field>
+          </ng-container>
+        </div>
+
+        <div class="input-item">
+          <img [src]="personUrl" />
+
+          <ng-container *ngIf="action !== bookingActions.deleteAction">
+            <mat-form-field color="accent" appearance="fill">
+              <mat-label>Enter UserID</mat-label>
+              <input
+                matInput
+                placeholder="Enter UserID"
+                formControlName="userId"
+              />
+            </mat-form-field>
+          </ng-container>
+        </div>
+
+        <div class="input-item">
+          <img [src]="emailUrl" />
+          <ng-container *ngIf="action !== bookingActions.deleteAction">
+            <mat-form-field color="accent" appearance="fill">
+              <mat-label>Enter Email</mat-label>
+              <input
+                matInput
+                placeholder="Enter Email"
+                formControlName="email"
+              />
+            </mat-form-field>
+          </ng-container>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <mat-dialog-actions align="center">
+    <button
+      mat-raised-button
+      mat-dialog-close
+      (click)="closeDialog(false)"
+      name="Cancel Button"
+      [attr.aria-label]="'Cancel Button'"
+    >
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      (click)="closeDialog(true)"
+      cdkFocusInitial
+      [disabled]="!userForm.valid"
+      name="Confirm Button"
+      [attr.aria-label]="'Confirm Button'"
+    >
+      Confirm
+    </button>
+  </mat-dialog-actions>
+</div>
